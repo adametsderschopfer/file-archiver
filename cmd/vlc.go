@@ -25,6 +25,7 @@ func pack(_ *cobra.Command, args []string) {
 
 	filePath := args[0]
 
+	// ToDo: Add stream instead of read full file
 	fileData, err := os.ReadFile(filePath)
 	if err != nil {
 		handleError(err)
