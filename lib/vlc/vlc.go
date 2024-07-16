@@ -19,11 +19,8 @@ type HexChunks []HexChunk
 const chunksSize = 8
 
 func Encode(str string) string {
-	var preparedText = prepareText(str)
-	_ = preparedText
-
-	bStr := encodeBin(preparedText)
-	chunks := splitByChunks(bStr, chunksSize)
+	preparedText := prepareText(str)
+	chunks := splitByChunks(encodeBin(preparedText), chunksSize)
 
 	return chunks.ToHex().ToString()
 }
