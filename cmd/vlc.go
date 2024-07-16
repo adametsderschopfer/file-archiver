@@ -3,6 +3,7 @@ package cmd
 import (
 	"errors"
 	"github.com/spf13/cobra"
+	"go-archiver/lib/vlc"
 	"os"
 	"path/filepath"
 	"strings"
@@ -32,9 +33,7 @@ func pack(_ *cobra.Command, args []string) {
 	}
 
 	packedFileName := createPackedFileName(filePath)
-	// packed := Encode(fileData)
-	packed := ""
-	_ = fileData
+	packed := vlc.Encode(fileData)
 
 	err = os.WriteFile(packedFileName, []byte(packed), 0644)
 
