@@ -33,7 +33,7 @@ func pack(_ *cobra.Command, args []string) {
 	}
 
 	packedFileName := createPackedFileName(filePath)
-	packed := vlc.Encode(fileData)
+	packed := vlc.Encode(string(fileData))
 
 	err = os.WriteFile(packedFileName, []byte(packed), 0644)
 
